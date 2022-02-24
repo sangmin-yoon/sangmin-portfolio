@@ -38,6 +38,7 @@ body {
   max-width: 1200px;
   padding: 20px;
   height: 150vh;
+  color: ${(props) => props.theme.color.subColor};
   background-color: ${(props) => props.theme.color.bgColor};
   
 }

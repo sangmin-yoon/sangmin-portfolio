@@ -14,6 +14,7 @@ const HeaderWrapper = styled.div`
 const Title = styled.h1`
   font-size: 25px;
   letter-spacing: 5px;
+  color: ${(props) => props.theme.color.mainColor};
 `;
 
 const Nav = styled.nav`
@@ -22,6 +23,8 @@ const Nav = styled.nav`
 
 const NavList = styled.div`
   letter-spacing: 2px;
+  font-weight: 200;
+  color: ${(props) => props.theme.color.subColor};
 
   &&:not(:last-child) {
     margin-right: 8px;
@@ -31,7 +34,7 @@ const NavList = styled.div`
 function Header() {
   return (
     <HeaderWrapper>
-      <Title>SANGMIN</Title>
+      <Title>SSMIN</Title>
       <Nav>
         <NavList>ABOUT</NavList>
         <NavList>SKILLS</NavList>
