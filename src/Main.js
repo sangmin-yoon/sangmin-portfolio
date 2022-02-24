@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MainWrapper = styled.div`
-  height: 100vh;
+  height: calc(100vh + 45px);
   position: relative;
   top: 45px;
   display: flex;

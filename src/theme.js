@@ -6,6 +6,6 @@ export const theme = {
     bgColorBorder: "#131313",
   },
   size: {
-    DefaultMaxWidth: "1200px",
+    defaultMaxWidth: "1200px",
   },
 };

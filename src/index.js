@@ -35,12 +35,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 20px;
   height: 150vh;
   color: ${(props) => props.theme.color.subColor};
   background-color: ${(props) => props.theme.color.bgColor};
-  
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 ol, ul {
 	list-style: none;

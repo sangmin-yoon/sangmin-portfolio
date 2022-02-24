@@ -2,13 +2,22 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.div`
   display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0px;
+  position: fixed;
+  z-index: 1;
+  background-color: ${(props) => props.theme.color.bgColorBorder};
+  box-sizing: border-box;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: fixed;
-  z-index: 1;
-  max-width: ${(props) => props.theme.size.DefaultMaxWidth};
   color: white;
+  max-width: ${(props) => props.theme.size.defaultMaxWidth};
 `;
 
 const Title = styled.h1`
@@ -34,13 +43,15 @@ const NavList = styled.div`
 function Header() {
   return (
     <HeaderWrapper>
-      <Title>SSMIN</Title>
-      <Nav>
-        <NavList>ABOUT</NavList>
-        <NavList>SKILLS</NavList>
-        <NavList>WORKS</NavList>
-        <NavList>CONTACT</NavList>
-      </Nav>
+      <HeaderContainer>
+        <Title>SMIN</Title>
+        <Nav>
+          <NavList>ABOUT</NavList>
+          <NavList>SKILLS</NavList>
+          <NavList>PROJECTS</NavList>
+          <NavList>CONTACT</NavList>
+        </Nav>
+      </HeaderContainer>
     </HeaderWrapper>
   );
 }
