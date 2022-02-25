@@ -41,7 +41,7 @@ function Contact() {
         <FontAwesomeIcon icon={faGithub} size="4x" />
         <FontAwesomeIcon icon={faComments} size="4x" />
       </SocialWrapper>
-      <Footer>@ 2022. YSM. All rights reserved.</Footer>
+      <Footer>© 2022. Sangmin. All rights reserved.</Footer>
     </ContactContainer>
   );
 }

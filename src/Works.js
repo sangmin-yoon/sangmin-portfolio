@@ -47,7 +47,7 @@ const ProjectTitle = styled.div`
   font-weight: 400;
 `;
 
-const myVariants = {
+const projectVariants = {
   hover: {
     opacity: 1,
     color: variantsTheme.color.mainColor,
@@ -64,19 +64,19 @@ function Works() {
       <WorksContainer>
         <HeaderTitle>WORKS</HeaderTitle>
         <Content>
-          <ProjectWrapper variants={myVariants} whileHover="hover">
+          <ProjectWrapper variants={projectVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Mfilx</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper variants={myVariants} whileHover="hover">
+          <ProjectWrapper variants={projectVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Switter</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper variants={myVariants} whileHover="hover">
+          <ProjectWrapper variants={projectVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>RealWorld</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper variants={myVariants} whileHover="hover">
+          <ProjectWrapper variants={projectVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Trello</ProjectTitle>
           </ProjectWrapper>
