@@ -15,6 +15,7 @@ const SocialWrapper = styled.div`
   svg {
     cursor: pointer;
     opacity: 0.5;
+    transition: 0.3s;
     &:hover {
       opacity: 1;
     }

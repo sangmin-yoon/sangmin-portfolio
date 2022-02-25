@@ -1,6 +1,8 @@
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import styled from "styled-components";
+import { variantsTheme } from "./theme";
 
 const WorksWrapper = styled.div`
   background-color: ${(props) => props.theme.color.bgColorBorder};
@@ -17,18 +19,18 @@ const WorksContainer = styled.div`
 
 const HeaderTitle = styled.h1`
   font-size: 50px;
-  margin-bottom: 20px;
   margin-bottom: 30px;
 `;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-top: 70px;
 `;
 
-const ProjectWrapper = styled.div`
+const ProjectWrapper = styled(motion.div)`
   width: 200px;
-  height: 400px;
+  height: 300px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -37,10 +39,6 @@ const ProjectWrapper = styled.div`
   color: ${(props) => props.theme.color.subColor};
   cursor: pointer;
   opacity: 0.7;
-
-  &:hover {
-    color: ${(props) => props.theme.color.mainColor};
-  }
 `;
 
 const ProjectTitle = styled.div`
@@ -49,25 +47,36 @@ const ProjectTitle = styled.div`
   font-weight: 400;
 `;
 
+const myVariants = {
+  hover: {
+    opacity: 1,
+    color: variantsTheme.color.mainColor,
+    scale: 1.2,
+    y: -20,
+    boxShadow:
+      "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+  },
+};
+
 function Works() {
   return (
     <WorksWrapper>
       <WorksContainer>
         <HeaderTitle>WORKS</HeaderTitle>
         <Content>
-          <ProjectWrapper>
+          <ProjectWrapper variants={myVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Mfilx</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper>
+          <ProjectWrapper variants={myVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Switter</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper>
+          <ProjectWrapper variants={myVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>RealWorld</ProjectTitle>
           </ProjectWrapper>
-          <ProjectWrapper>
+          <ProjectWrapper variants={myVariants} whileHover="hover">
             <FontAwesomeIcon icon={faFileLines} size="10x" />
             <ProjectTitle>Trello</ProjectTitle>
           </ProjectWrapper>
