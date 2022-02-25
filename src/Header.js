@@ -48,7 +48,7 @@ function Header() {
         <Nav>
           <NavList>ABOUT</NavList>
           <NavList>SKILLS</NavList>
-          <NavList>PROJECTS</NavList>
+          <NavList>WORKS</NavList>
           <NavList>CONTACT</NavList>
         </Nav>
       </HeaderContainer>

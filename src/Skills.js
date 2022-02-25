@@ -6,7 +6,6 @@ const SkillsContainer = styled.div`
   max-width: ${(props) => props.theme.size.defaultMaxWidth};
   margin: 0 auto;
   margin-top: 200px;
-  height: 500px;
   width: 100%;
 `;
 
@@ -18,6 +17,7 @@ const HeaderTitle = styled.h1`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const FrontBox = styled.div`
@@ -61,22 +61,22 @@ function Skills() {
   return (
     <SkillsWrapper>
       <SkillsContainer>
-        <HeaderTitle>Skills</HeaderTitle>
+        <HeaderTitle>SKILLS</HeaderTitle>
         <Content>
           <FrontBox>
             <h1>Frontend</h1>
             <hr />
-            <img alt="front" src="assets/front.png" />
+            <img alt="front" src="assets/skills/front.png" />
           </FrontBox>
           <BackBox>
             <h1>Backend</h1>
             <hr />
-            <img alt="back" src="assets/back.png" />
+            <img alt="back" src="assets/skills/back.png" />
           </BackBox>
           <DeployBox>
             <h1>Deployment</h1>
             <hr />
-            <img alt="deploy" src="assets/deployment.png" />
+            <img alt="deploy" src="assets/skills/deployment.png" />
           </DeployBox>
         </Content>
       </SkillsContainer>
