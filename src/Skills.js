@@ -21,7 +21,7 @@ const Content = styled.div`
 `;
 
 const FrontBox = styled.div`
-  background-color: ${(props) => props.theme.color.bgColorBorder};
+  background-color: ${(props) => props.theme.color.bgColor};
   width: fit-content;
   border-radius: 10px;
   font-size: 30px;
@@ -34,7 +34,7 @@ const FrontBox = styled.div`
 `;
 
 const BackBox = styled.div`
-  background-color: ${(props) => props.theme.color.bgColorBorder};
+  background-color: ${(props) => props.theme.color.bgColor};
   width: fit-content;
   font-size: 30px;
   color: ${(props) => props.theme.color.mainColor};
@@ -46,7 +46,7 @@ const BackBox = styled.div`
 `;
 
 const DeployBox = styled.div`
-  background-color: ${(props) => props.theme.color.bgColorBorder};
+  background-color: ${(props) => props.theme.color.bgColor};
   width: fit-content;
   font-size: 30px;
   color: ${(props) => props.theme.color.mainColor};

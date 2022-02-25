@@ -1,15 +1,4 @@
-import {
-  faFaceSmile,
-  faFile,
-  faFileAlt,
-  faFileArchive,
-  faFileClipboard,
-  faFileCode,
-  faFileImage,
-  faFileLines,
-  faFileVideo,
-  faFileWord,
-} from "@fortawesome/free-regular-svg-icons";
+import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
@@ -47,6 +36,7 @@ const ProjectWrapper = styled.div`
   align-items: center;
   color: ${(props) => props.theme.color.subColor};
   cursor: pointer;
+  opacity: 0.7;
 
   &:hover {
     color: ${(props) => props.theme.color.mainColor};
