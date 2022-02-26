@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const AboutWrapper = styled.div`
@@ -54,34 +59,25 @@ function About() {
   const scrollRef = useRef();
 
   useEffect(() => {
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
+  }, []); // 새로고침시 뷰포인트 맨위로 이동
+
+  useEffect(() => {
     const scroll = scrollRef.current.getBoundingClientRect().y;
     setFromTopToTargetHeigt(scroll);
   }, []);
 
-  useEffect(() => {
-    window.onbeforeunload = function pushRefresh() {
-      window.scrollTo(0, 0);
-    };
-  }, []);
-
-  const xRight = useTransform(
-    scrollY,
-    [0, fromTopToTargetHeigt - 300],
-    [2000, 0]
-  );
-  const xLeft = useTransform(
-    scrollY,
-    [0, fromTopToTargetHeigt - 200],
-    [-2000, 0]
-  );
+  const x = useTransform(scrollY, [0, fromTopToTargetHeigt - 300], [800, 0]);
 
   return (
     <AboutWrapper>
       <AboutContainer>
         <HeaderTitle ref={scrollRef}>ABOUT ME</HeaderTitle>
         <Content>
-          <ProfileImg src="assets/pro.png" style={{ x: xLeft }} />
-          <Overview style={{ x: xRight }}>
+          <ProfileImg src="assets/pro.png" />
+          <Overview style={{ x }}>
             <h1>
               항상 배우고 발전하고 싶은 개발자
               <br /> 윤상민 입니다.

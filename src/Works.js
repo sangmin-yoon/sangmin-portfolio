@@ -1,6 +1,7 @@
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
+import { motion, useViewportScroll } from "framer-motion";
+import { useState } from "react";
 import styled from "styled-components";
 import { variantsTheme } from "./theme";
 
@@ -47,9 +48,38 @@ const ProjectTitle = styled.div`
   font-weight: 400;
 `;
 
+const DetailContainer = styled(motion.div)`
+  height: 200px;
+  width: 400px;
+  background-color: ${(props) => props.theme.color.bgColor};
+  border-radius: 10px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 35vw;
+  height: 70vh;
+  z-index: 1;
+  border: 2px solid ${(props) => props.theme.color.bgColorBorder};
+  opacity: 0.99;
+`;
+
+const ProjectCrover = styled(motion.div)`
+  width: 200px;
+  height: 300px;
+`;
+
+const Screen = styled(motion.div)`
+  width: 100vw;
+  position: absolute;
+  margin: 0 auto;
+
+  background-color: black;
+  z-index: 2;
+`;
+
 const projectVariants = {
   hover: {
-    opacity: 1,
     color: variantsTheme.color.mainColor,
     scale: 1.2,
     y: -20,
@@ -59,29 +89,90 @@ const projectVariants = {
 };
 
 function Works() {
+  const [projectsObj, setProjectObj] = useState({
+    Mflix: {
+      stack: [],
+      description: "어쩌구 저쩌구",
+      imgUrl: "",
+      modal: false,
+    },
+    Switter: {
+      stack: [],
+      description: "어쩌구 저쩌구",
+      imgUrl: "",
+      modal: false,
+    },
+    RealWorld: {
+      stack: [],
+      description: "어쩌구 저쩌구d",
+      imgUrl: "",
+      modal: false,
+    },
+    Trello: {
+      stack: [],
+      description: "어쩌구 저쩌구",
+      imgUrl: "",
+      modal: false,
+    },
+  });
+  const { scrollY } = useViewportScroll();
+
+  const modalOn = (i) => {
+    setProjectObj((prev) => {
+      return {
+        ...prev,
+        [i]: {
+          ...prev[i],
+          modal: true,
+        },
+      };
+    });
+  };
+
+  const modalOff = (i) => {
+    setProjectObj((prev) => {
+      return {
+        ...prev,
+        [i]: {
+          ...prev[i],
+          modal: false,
+        },
+      };
+    });
+  };
+
   return (
     <WorksWrapper>
+      <Screen />
       <WorksContainer>
         <HeaderTitle>WORKS</HeaderTitle>
         <Content>
-          <ProjectWrapper variants={projectVariants} whileHover="hover">
-            <FontAwesomeIcon icon={faFileLines} size="10x" />
-            <ProjectTitle>Mfilx</ProjectTitle>
-          </ProjectWrapper>
-          <ProjectWrapper variants={projectVariants} whileHover="hover">
-            <FontAwesomeIcon icon={faFileLines} size="10x" />
-            <ProjectTitle>Switter</ProjectTitle>
-          </ProjectWrapper>
-          <ProjectWrapper variants={projectVariants} whileHover="hover">
-            <FontAwesomeIcon icon={faFileLines} size="10x" />
-            <ProjectTitle>RealWorld</ProjectTitle>
-          </ProjectWrapper>
-          <ProjectWrapper variants={projectVariants} whileHover="hover">
-            <FontAwesomeIcon icon={faFileLines} size="10x" />
-            <ProjectTitle>Trello</ProjectTitle>
-          </ProjectWrapper>
+          {Object.keys(projectsObj).map((i, key) => (
+            <ProjectCrover key={key} onClick={() => modalOn(i)}>
+              <ProjectWrapper
+                layoutId={i}
+                variants={projectVariants}
+                whileHover="hover"
+              >
+                <FontAwesomeIcon icon={faFileLines} size="10x" />
+                <ProjectTitle>{i}</ProjectTitle>
+              </ProjectWrapper>
+            </ProjectCrover>
+          ))}
         </Content>
       </WorksContainer>
+      {Object.keys(projectsObj).map((i, key) => (
+        <>
+          {projectsObj[i].modal ? (
+            <DetailContainer
+              onClick={() => modalOff(i)}
+              key={key}
+              style={{ top: scrollY.get() + 100 }}
+              layoutId={i}
+            ></DetailContainer>
+          ) : null}
+        </>
+      ))}
     </WorksWrapper>
   );
 }
