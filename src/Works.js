@@ -62,6 +62,7 @@ const DetailContainer = styled(motion.div)`
   z-index: 1;
   border: 2px solid ${(props) => props.theme.color.bgColorBorder};
   opacity: 0.99;
+  padding: 20px;
 `;
 
 const ProjectCrover = styled(motion.div)`
@@ -78,6 +79,44 @@ const Screen = styled(motion.div)`
   z-index: 2;
 `;
 
+const DetailImg = styled.div`
+  height: 50%;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 5px;
+`;
+
+const DetailOverViewContainer = styled.div`
+  height: 50%;
+  width: 100%;
+`;
+
+const OverViewTitle = styled.h1`
+  font-size: 25px;
+  padding: 15px;
+  font-weight: 500;
+  text-align: center;
+`;
+
+const StackWrapper = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+`;
+
+const Stack = styled.h1`
+  background-color: ${(props) => props.theme.color.bgColorBorder};
+  padding: 7px 20px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+
+  &&:not(:last-child) {
+    margin-right: 8px;
+  }
+`;
+
+const Description = styled.div``;
+
 const projectVariants = {
   hover: {
     color: variantsTheme.color.mainColor,
@@ -90,29 +129,37 @@ const projectVariants = {
 
 function Works() {
   const [projectsObj, setProjectObj] = useState({
-    Mflix: {
-      stack: [],
+    MFLIX: {
+      stack: ["React.js", "Type-Script", "Framer-motion", "Styled-Components"],
       description:
         "넷플릭스를 클론한 사이트입니다. TMDB의 영화 Api를 사용하여 영화,TV프로그램 리스트와 검색 기능을 구현 했습니다. 그외에 React.js의 Framer-Motion 라이브러리를 사용하여 애니메이션을 구현했습니다. React의 이해도를 더 높게 만들어주게 되는 프로젝트였습니다. ",
       imgUrl: "",
       modal: false,
     },
     Switter: {
-      stack: [],
+      stack: ["React.js", "Firebase", "Styled-Components"],
       description:
         "트위터를 클론하여 만든 사이트입니다. Fire Base를 이용하여 작업했습니다. React.js에서의 CRUD구현 방식을 알게됐고 Fire Base를 이용해 프론트엔드 만으로 풀스택을 구현하는 새로운 경험을 할 수 있었습니다.",
       imgUrl: "",
       modal: false,
     },
     RealWorld: {
-      stack: [],
+      stack: [
+        "React.js",
+        "Type-Script",
+        "Redux",
+        "Styled-Components",
+        "Node.js",
+        "Express",
+        "MongoDB",
+      ],
       description:
         "React.js와 Node.js를 이용해 풀스택 사이트를 만들어보고자 시작하게 됐습니다. Mongodb를 이용해 데이터를 저장하였고 프론트는 Netlify, 백엔드는 Heroku를 이용하여 배포했습니다. Node.js로 Rest Api를 직접 구현하여 React.js와 통신했습니다. cookie/session 인증 방식에 대해 확실이 이해할수 있게 됐고 서로다른 도메인에서 데이터를 공유하는 과정에서 CORS, SameSite등 웹에대한 지식을 얻을 수 있었습니다. 또한 MongoDb의 다양한 query문을 사용해보면서 복잡해보였던 요청이 코드 몇줄만으로 해결됐던 통쾌한 경험과함께 MongoDb에 대한 이해도도 늘어났습니다.",
       imgUrl: "",
       modal: false,
     },
     Trello: {
-      stack: [],
+      stack: ["React.js", "Styled-Components"],
       description: "어쩌구 저쩌구",
       imgUrl: "",
       modal: false,
@@ -173,7 +220,18 @@ function Works() {
               key={key}
               style={{ top: scrollY.get() + 100 }}
               layoutId={i}
-            ></DetailContainer>
+            >
+              <DetailImg />
+              <DetailOverViewContainer>
+                <OverViewTitle>{i}</OverViewTitle>
+                <StackWrapper>
+                  {projectsObj[i].stack.map((skill) => (
+                    <Stack>{skill}</Stack>
+                  ))}
+                </StackWrapper>
+                <Description>{projectsObj[i].description}</Description>
+              </DetailOverViewContainer>
+            </DetailContainer>
           ) : null}
         </>
       ))}
