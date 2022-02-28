@@ -7,6 +7,11 @@ import Skills from "./Skills";
 import Works from "./Works";
 
 function App() {
+  useEffect(() => {
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
+  }, []); // 새로고침시 뷰포인트 맨위로 이동
   return (
     <>
       <Header />

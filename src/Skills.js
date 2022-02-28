@@ -1,3 +1,5 @@
+import { useTransform, useViewportScroll } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const SkillsWrapper = styled.div``;
@@ -23,10 +25,12 @@ const Content = styled.div`
 const FrontBox = styled.div`
   background-color: ${(props) => props.theme.color.bgColor};
   width: fit-content;
-  border-radius: 10px;
   font-size: 30px;
   color: ${(props) => props.theme.color.mainColor};
   padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
   img {
     width: 300px;
@@ -39,7 +43,10 @@ const BackBox = styled.div`
   font-size: 30px;
   color: ${(props) => props.theme.color.mainColor};
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
   img {
     width: 300px;
   }
@@ -51,7 +58,10 @@ const DeployBox = styled.div`
   font-size: 30px;
   color: ${(props) => props.theme.color.mainColor};
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
   img {
     width: 300px;
   }
@@ -61,7 +71,7 @@ function Skills() {
   return (
     <SkillsWrapper>
       <SkillsContainer>
-        <HeaderTitle>SKILLS</HeaderTitle>
+        {/* <HeaderTitle>SKILLS</HeaderTitle> */}
         <Content>
           <FrontBox>
             <h1>Frontend</h1>

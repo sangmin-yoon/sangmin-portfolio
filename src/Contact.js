@@ -1,5 +1,5 @@
-import { faGithub, faGoogle } from "@fortawesome/fontawesome-free-brands";
-import { faComments } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/fontawesome-free-brands";
+import { faComments, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
@@ -37,9 +37,9 @@ function Contact() {
   return (
     <ContactContainer>
       <SocialWrapper>
-        <FontAwesomeIcon icon={faGoogle} size="4x" />
-        <FontAwesomeIcon icon={faGithub} size="4x" />
-        <FontAwesomeIcon icon={faComments} size="4x" />
+        <FontAwesomeIcon icon={faEnvelope} size="3x" />
+        <FontAwesomeIcon icon={faGithub} size="3x" />
+        <FontAwesomeIcon icon={faComments} size="3x" />
       </SocialWrapper>
       <Footer>© 2022. Sangmin. All rights reserved.</Footer>
     </ContactContainer>

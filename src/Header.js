@@ -45,12 +45,12 @@ function Header() {
     <HeaderWrapper>
       <HeaderContainer>
         <Title>SMIN</Title>
-        <Nav>
+        {/* <Nav>
           <NavList>ABOUT</NavList>
           <NavList>SKILLS</NavList>
           <NavList>WORKS</NavList>
           <NavList>CONTACT</NavList>
-        </Nav>
+        </Nav> */}
       </HeaderContainer>
     </HeaderWrapper>
   );

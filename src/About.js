@@ -44,14 +44,18 @@ const Overview = styled(motion.div)`
   font-size: 20px;
   line-height: 30px;
   font-weight: 300;
-
-  h1 {
-    color: ${(props) => props.theme.color.mainColor};
-    font-weight: 400;
-    font-size: 25px;
-    margin-bottom: 20px;
-  }
 `;
+
+const OverViewTitle = styled(motion.h1)`
+  color: ${(props) => props.theme.color.mainColor};
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 20px;
+`;
+
+const ParagraphFirst = styled(motion.p)``;
+
+const ParagraphTwo = styled(motion.p)``;
 
 function About() {
   const [fromTopToTargetHeigt, setFromTopToTargetHeigt] = useState(0);
@@ -59,17 +63,27 @@ function About() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    window.onbeforeunload = function pushRefresh() {
-      window.scrollTo(0, 0);
-    };
-  }, []); // 새로고침시 뷰포인트 맨위로 이동
-
-  useEffect(() => {
     const scroll = scrollRef.current.getBoundingClientRect().y;
     setFromTopToTargetHeigt(scroll);
   }, []);
 
-  const x = useTransform(scrollY, [0, fromTopToTargetHeigt - 300], [800, 0]);
+  const titleSlide = useTransform(
+    scrollY,
+    [0, fromTopToTargetHeigt - 200],
+    [800, 0]
+  );
+
+  const paragraphSlideOne = useTransform(
+    scrollY,
+    [0, fromTopToTargetHeigt - 100],
+    [800, 0]
+  );
+
+  const paragraphSlideTwo = useTransform(
+    scrollY,
+    [0, fromTopToTargetHeigt],
+    [800, 0]
+  );
 
   return (
     <AboutWrapper>
@@ -77,16 +91,25 @@ function About() {
         <HeaderTitle ref={scrollRef}>ABOUT ME</HeaderTitle>
         <Content>
           <ProfileImg src="assets/pro.png" />
-          <Overview style={{ x }}>
-            <h1>
+          <Overview>
+            <OverViewTitle style={{ x: titleSlide }}>
               항상 배우고 발전하고 싶은 개발자
               <br /> 윤상민 입니다.
-            </h1>
-            <p>
+            </OverViewTitle>
+            <ParagraphFirst style={{ x: paragraphSlideOne }}>
               실제로 구현하여 성과가 보이는 것, 내가 만든 무언가를 다른
-              사람이 사용한다는 것에 재미와 보람을 느낍니다.
-              ㅊㅇㄴㅁㅇㅁㄴㅇㄴㅁㅇㄴ마오ㅓㅁ나ㅗㅇㄴ머ㅏ오나ㅓㅇㅁ나ㅓ온머'ㅇ놤너옴ㅇ나ㅓㅁ
-            </p>
+              사람이 사용한다는 것에 재미와 보람을 느낍니다. IT 기술을 좋아하고
+              내가 노력한만큼 성장할 수 있다 생각하여 개발을 시작하게 됐습니다.
+            </ParagraphFirst>
+            <br />
+            <ParagraphTwo style={{ x: paragraphSlideTwo }}>
+              프론트뿐만 아니라 백엔드, 앱개발등 다양한 기술에 관심이 많습니다.
+              최근에는 앱개발에 관심이 많아 React Native를 공부하고 있습니다.
+              그리고 Vanilla JS의 깊은 이해도를 위해 그와 관련된 공부도 꾸준히
+              하고있습니다. 개발에 공부는 끝이 없다고 생각합니다. 평생 공부할
+              각오를 하고 개발자의 길에 발을 들이게 됐습니다. 빨리 성장하여
+              회사에 도움되는 인재가 되도록 하겠습니다.
+            </ParagraphTwo>
           </Overview>
         </Content>
       </AboutContainer>
