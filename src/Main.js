@@ -56,7 +56,7 @@ function Main({ scrollTo }) {
               .start();
           }}
           options={{
-            delay: 90,
+            delay: 95,
           }}
         />
         {/* <h1>

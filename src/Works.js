@@ -175,11 +175,13 @@ const projectVariants = {
 
 function Works() {
   const [projectsObj, setProjectObj] = useState({
-    MFLIX: {
-      stack: ["React.js", "Type-Script", "Framer-motion", "Styled-Components"],
+    momentum: {
+      stack: ["Vanilla JS", "HTML", "CSS"],
       description:
-        "넷플릭스를 클론한 사이트입니다. TMDB의 영화 API를 사용하여 영화,TV프로그램 리스트와 검색 기능을 구현 했습니다. 그외에 React.js의 Framer-Motion 라이브러리를 사용하여 애니메이션을 구현했습니다. React의 이해도를 더 높게 만들어주게 되는 프로젝트였습니다. ",
+        "Vanilla JS를 이용해 만든 위젯 사이트 입니다. JS를 이용한 DOM조작과 Fetch API를 사용한 날씨정보 불러오기 등 JS의 기본기를 배울 수 있게된 프로젝트 였습니다. ",
       imgUrl: "",
+      homePageUrl: "https://sangmin-yoon.github.io/momentum-clone/",
+      gitUrl: "https://github.com/sangmin-yoon/momentum-clone",
       modal: false,
     },
     Switter: {
@@ -187,8 +189,20 @@ function Works() {
       description:
         "트위터를 클론하여 만든 사이트입니다. Firebase를 이용하여 작업했습니다. React.js에서의 CRUD구현 방식을 알게됐고 Firebase를 이용해 프론트엔드 만으로 풀스택을 구현하는 새로운 경험을 할 수 있었습니다.",
       imgUrl: "",
+      homePageUrl: "https://sangmin-yoon.github.io/switter/#/",
+      gitUrl: "https://github.com/sangmin-yoon/switter",
       modal: false,
     },
+    MFLIX: {
+      stack: ["React.js", "Type-Script", "Framer-motion", "Styled-Components"],
+      description:
+        "넷플릭스를 클론한 사이트입니다. TMDB의 영화 API를 사용하여 영화,TV프로그램 리스트와 검색 기능을 구현 했습니다. 그외에 React.js의 Framer-Motion 라이브러리를 사용하여 애니메이션을 구현했습니다. React의 이해도를 더 높게 만들어주게 되는 프로젝트였습니다. ",
+      imgUrl: "",
+      homePageUrl: "https://sangmin-yoon.github.io/2021-Mflix/",
+      gitUrl: "https://github.com/sangmin-yoon/2021-Mflix",
+      modal: false,
+    },
+
     RealWorld: {
       stack: [
         "React.js",
@@ -203,19 +217,15 @@ function Works() {
       description:
         "React.js와 Node.js를 이용해 풀스택 사이트를 만들어보고자 시작하게 됐습니다. MongoDB를 이용해 데이터를 저장하였고 프론트는 Netlify, 백엔드는 Heroku를 이용하여 배포했습니다. Node.js로 REST API를 직접 구현하여 React.js와 통신했습니다. cookie/session 인증 방식에 대해 확실이 이해할수 있게 됐고 서로다른 origin에서 데이터를 공유하는 과정에서 CORS, SameSite등 웹에대한 지식을 얻을 수 있었습니다. 또한 MongoDB의 다양한 query문을 사용해보면서 복잡해보였던 요청이 코드 몇줄만으로 해결됐던 통쾌한 경험과함께 MongoDB에 대한 이해도도 높여주는 프로젝트 였습니다.",
       imgUrl: "",
-      modal: false,
-    },
-    momentum: {
-      stack: ["Vanilla JS", "HTML", "CSS"],
-      description:
-        "Vanilla JS를 이용해 만든 위젯 사이트 입니다. JS를 이용한 DOM조작을 이해하게 됐습니다. Fetch API를 사용해 날씨정보를 불러와 사용했습니다. ",
-      imgUrl: "",
+      homePageUrl: "https://swits.netlify.app/globalfeed",
+      gitUrl: "https://github.com/sangmin-yoon/realworld-example",
       modal: false,
     },
   });
   const { scrollY } = useViewportScroll();
 
   const modalOn = (i) => {
+    document.body.style.overflow = "hidden";
     setProjectObj((prev) => {
       return {
         ...prev,
@@ -228,6 +238,7 @@ function Works() {
   };
 
   const modalOff = (i) => {
+    document.body.style.overflow = "auto";
     setProjectObj((prev) => {
       return {
         ...prev,
@@ -277,11 +288,15 @@ function Works() {
                   <OverViewTitle>{i}</OverViewTitle>
                   <RefWrapper>
                     <RefIconWrapper
-                      onClick={() => window.open("https://www.naver.com/")}
+                      onClick={() => window.open(`${projectsObj[i].gitUrl}`)}
                     >
                       <FontAwesomeIcon icon={faGithub} />
                     </RefIconWrapper>
-                    <RefIconWrapper>
+                    <RefIconWrapper
+                      onClick={() =>
+                        window.open(`${projectsObj[i].homePageUrl}`)
+                      }
+                    >
                       <FontAwesomeIcon icon={faHomeLg} />
                     </RefIconWrapper>
                   </RefWrapper>

@@ -34,12 +34,26 @@ const ContactContainer = styled.div`
 `;
 
 function Contact() {
+  const emailCopy = () => {
+    navigator.clipboard.writeText("sangminyn@gmail.com").then(() => {
+      alert("메일 주소가 복사됐습니다.");
+    });
+  };
+
   return (
     <ContactContainer>
       <SocialWrapper>
-        <FontAwesomeIcon icon={faEnvelope} size="3x" />
-        <FontAwesomeIcon icon={faGithub} size="3x" />
-        <FontAwesomeIcon icon={faComments} size="3x" />
+        <FontAwesomeIcon onClick={emailCopy} icon={faEnvelope} size="3x" />
+        <FontAwesomeIcon
+          onClick={() => window.open("https://github.com/sangmin-yoon")}
+          icon={faGithub}
+          size="3x"
+        />
+        <FontAwesomeIcon
+          onClick={() => window.open("https://open.kakao.com/o/soGVJ72d")}
+          icon={faComments}
+          size="3x"
+        />
       </SocialWrapper>
       <Footer>© 2022. Sangmin. All rights reserved.</Footer>
     </ContactContainer>
