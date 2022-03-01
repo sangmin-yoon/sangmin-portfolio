@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { theme } from "./theme";
 
 const GlobalSteyld = createGlobalStyle`
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -38,7 +37,9 @@ body {
   height: 150vh;
   color: ${(props) => props.theme.color.subColor};
   background-color: ${(props) => props.theme.color.bgColor};
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  /* font-family: 'IBM Plex Sans KR', sans-serif; */
+  font-family: "LeferiPoint-WhiteObliqueA";
+  overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -55,6 +56,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+@font-face {
+        font-family: "LeferiPoint-WhiteObliqueA";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff")
+          format("woff");
+          font-weight: normal;
+        font-style: normal;
+      }
 `;
 
 ReactDOM.render(

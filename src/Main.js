@@ -39,7 +39,7 @@ const Overview = styled.div`
   }
 `;
 
-function Main() {
+function Main({ scrollTo }) {
   return (
     <MainWrapper>
       <Overview>
@@ -49,10 +49,14 @@ function Main() {
               .typeString(
                 "<h1>안녕하세요, <br />프론트엔드 개발자<br />윤상민입니다.</h1><hr /><h3>방문해 주셔서 감사합니다. :)</h3>"
               )
+              .callFunction(() => {
+                scrollTo.about();
+                document.body.style.overflow = "auto";
+              })
               .start();
           }}
           options={{
-            delay: 75,
+            delay: 90,
           }}
         />
         {/* <h1>

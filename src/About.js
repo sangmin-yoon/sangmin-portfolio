@@ -97,9 +97,9 @@ function About() {
               <br /> 윤상민 입니다.
             </OverViewTitle>
             <ParagraphFirst style={{ x: paragraphSlideOne }}>
-              실제로 구현하여 성과가 보이는 것, 내가 만든 무언가를 다른
-              사람이 사용한다는 것에 재미와 보람을 느낍니다. IT 기술을 좋아하고
-              내가 노력한만큼 성장할 수 있다 생각하여 개발을 시작하게 됐습니다.
+              실제로 구현하여 성과가 보이는 것, 내가 만든 무언가를 다른 사람이
+              사용한다는 것에 재미와 보람을 느낍니다. IT 기술을 좋아하고 내가
+              노력한 만큼 성장할 수 있다고 생각하여 개발을 시작하게 됐습니다.
             </ParagraphFirst>
             <br />
             <ParagraphTwo style={{ x: paragraphSlideTwo }}>
@@ -108,7 +108,7 @@ function About() {
               그리고 Vanilla JS의 깊은 이해도를 위해 그와 관련된 공부도 꾸준히
               하고있습니다. 개발에 공부는 끝이 없다고 생각합니다. 평생 공부할
               각오를 하고 개발자의 길에 발을 들이게 됐습니다. 빨리 성장하여
-              회사에 도움되는 인재가 되도록 하겠습니다.
+              회사에 도움 되는 인재가 되도록 하겠습니다.
             </ParagraphTwo>
           </Overview>
         </Content>
