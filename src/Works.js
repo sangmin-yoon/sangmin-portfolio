@@ -1,4 +1,11 @@
+import { faGithub } from "@fortawesome/fontawesome-free-brands";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+import {
+  faHomeLg,
+  faHouseDamage,
+  faLink,
+  faXmarkCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useViewportScroll } from "framer-motion";
 import { useState } from "react";
@@ -63,6 +70,7 @@ const DetailContainer = styled(motion.div)`
   border: 2px solid ${(props) => props.theme.color.bgColorBorder};
   opacity: 0.99;
   padding: 20px;
+  overflow: scroll;
 `;
 
 const ProjectCrover = styled(motion.div)`
@@ -82,13 +90,18 @@ const Screen = styled(motion.div)`
 const DetailImg = styled.div`
   height: 50%;
   width: 100%;
-  border: 1px solid white;
+  border: 1px solid ${(props) => props.theme.color.mainColor};
   border-radius: 5px;
 `;
 
 const DetailOverViewContainer = styled.div`
-  height: 50%;
   width: 100%;
+`;
+
+const OverViewTitleWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
 `;
 
 const OverViewTitle = styled.h1`
@@ -96,6 +109,7 @@ const OverViewTitle = styled.h1`
   padding: 15px;
   font-weight: 500;
   text-align: center;
+  font-size: 2vw;
 `;
 
 const StackWrapper = styled.div`
@@ -105,17 +119,49 @@ const StackWrapper = styled.div`
 `;
 
 const Stack = styled.h1`
-  background-color: ${(props) => props.theme.color.bgColorBorder};
+  background-color: rgba(238, 238, 239, 0.7);
   padding: 7px 20px;
   border-radius: 25px;
   margin-bottom: 5px;
+  color: ${(props) => props.theme.color.bgColorBorder};
 
   &&:not(:last-child) {
     margin-right: 8px;
   }
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+  line-height: 130%;
+  font-size: 1.1vw;
+  opacity: 0.8;
+  margin-bottom: 10px;
+  height: 100%;
+`;
+
+const CloseBtn = styled.div`
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  cursor: pointer;
+`;
+
+const RefWrapper = styled.div`
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 40px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const RefIconWrapper = styled.div`
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
 
 const projectVariants = {
   hover: {
@@ -132,14 +178,14 @@ function Works() {
     MFLIX: {
       stack: ["React.js", "Type-Script", "Framer-motion", "Styled-Components"],
       description:
-        "넷플릭스를 클론한 사이트입니다. TMDB의 영화 Api를 사용하여 영화,TV프로그램 리스트와 검색 기능을 구현 했습니다. 그외에 React.js의 Framer-Motion 라이브러리를 사용하여 애니메이션을 구현했습니다. React의 이해도를 더 높게 만들어주게 되는 프로젝트였습니다. ",
+        "넷플릭스를 클론한 사이트입니다. TMDB의 영화 API를 사용하여 영화,TV프로그램 리스트와 검색 기능을 구현 했습니다. 그외에 React.js의 Framer-Motion 라이브러리를 사용하여 애니메이션을 구현했습니다. React의 이해도를 더 높게 만들어주게 되는 프로젝트였습니다. ",
       imgUrl: "",
       modal: false,
     },
     Switter: {
       stack: ["React.js", "Firebase", "Styled-Components"],
       description:
-        "트위터를 클론하여 만든 사이트입니다. Fire Base를 이용하여 작업했습니다. React.js에서의 CRUD구현 방식을 알게됐고 Fire Base를 이용해 프론트엔드 만으로 풀스택을 구현하는 새로운 경험을 할 수 있었습니다.",
+        "트위터를 클론하여 만든 사이트입니다. Firebase를 이용하여 작업했습니다. React.js에서의 CRUD구현 방식을 알게됐고 Firebase를 이용해 프론트엔드 만으로 풀스택을 구현하는 새로운 경험을 할 수 있었습니다.",
       imgUrl: "",
       modal: false,
     },
@@ -152,15 +198,17 @@ function Works() {
         "Node.js",
         "Express",
         "MongoDB",
+        "Heroku",
       ],
       description:
-        "React.js와 Node.js를 이용해 풀스택 사이트를 만들어보고자 시작하게 됐습니다. Mongodb를 이용해 데이터를 저장하였고 프론트는 Netlify, 백엔드는 Heroku를 이용하여 배포했습니다. Node.js로 Rest Api를 직접 구현하여 React.js와 통신했습니다. cookie/session 인증 방식에 대해 확실이 이해할수 있게 됐고 서로다른 도메인에서 데이터를 공유하는 과정에서 CORS, SameSite등 웹에대한 지식을 얻을 수 있었습니다. 또한 MongoDb의 다양한 query문을 사용해보면서 복잡해보였던 요청이 코드 몇줄만으로 해결됐던 통쾌한 경험과함께 MongoDb에 대한 이해도도 늘어났습니다.",
+        "React.js와 Node.js를 이용해 풀스택 사이트를 만들어보고자 시작하게 됐습니다. MongoDB를 이용해 데이터를 저장하였고 프론트는 Netlify, 백엔드는 Heroku를 이용하여 배포했습니다. Node.js로 REST API를 직접 구현하여 React.js와 통신했습니다. cookie/session 인증 방식에 대해 확실이 이해할수 있게 됐고 서로다른 origin에서 데이터를 공유하는 과정에서 CORS, SameSite등 웹에대한 지식을 얻을 수 있었습니다. 또한 MongoDB의 다양한 query문을 사용해보면서 복잡해보였던 요청이 코드 몇줄만으로 해결됐던 통쾌한 경험과함께 MongoDB에 대한 이해도도 높여주는 프로젝트 였습니다.",
       imgUrl: "",
       modal: false,
     },
-    Trello: {
-      stack: ["React.js", "Styled-Components"],
-      description: "어쩌구 저쩌구",
+    momentum: {
+      stack: ["Vanilla JS", "HTML", "CSS"],
+      description:
+        "Vanilla JS를 이용해 만든 위젯 사이트 입니다. JS를 이용한 DOM조작을 이해하게 됐습니다. Fetch API를 사용해 날씨정보를 불러와 사용했습니다. ",
       imgUrl: "",
       modal: false,
     },
@@ -216,17 +264,32 @@ function Works() {
         <>
           {projectsObj[i].modal ? (
             <DetailContainer
-              onClick={() => modalOff(i)}
-              key={key}
               style={{ top: scrollY.get() + 100 }}
               layoutId={i}
+              key={key}
             >
+              <CloseBtn onClick={() => modalOff(i)}>
+                <FontAwesomeIcon icon={faXmarkCircle} />
+              </CloseBtn>
               <DetailImg />
               <DetailOverViewContainer>
-                <OverViewTitle>{i}</OverViewTitle>
+                <OverViewTitleWrapper>
+                  <OverViewTitle>{i}</OverViewTitle>
+                  <RefWrapper>
+                    <RefIconWrapper
+                      onClick={() => window.open("https://www.naver.com/")}
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                    </RefIconWrapper>
+                    <RefIconWrapper>
+                      <FontAwesomeIcon icon={faHomeLg} />
+                    </RefIconWrapper>
+                  </RefWrapper>
+                </OverViewTitleWrapper>
+
                 <StackWrapper>
-                  {projectsObj[i].stack.map((skill) => (
-                    <Stack>{skill}</Stack>
+                  {projectsObj[i].stack.map((skill, key) => (
+                    <Stack key={key}>{skill}</Stack>
                   ))}
                 </StackWrapper>
                 <Description>{projectsObj[i].description}</Description>

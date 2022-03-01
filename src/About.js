@@ -69,19 +69,19 @@ function About() {
 
   const titleSlide = useTransform(
     scrollY,
-    [0, fromTopToTargetHeigt - 200],
+    [0, fromTopToTargetHeigt - 300],
     [800, 0]
   );
 
   const paragraphSlideOne = useTransform(
     scrollY,
-    [0, fromTopToTargetHeigt - 100],
+    [0, fromTopToTargetHeigt - 200],
     [800, 0]
   );
 
   const paragraphSlideTwo = useTransform(
     scrollY,
-    [0, fromTopToTargetHeigt],
+    [0, fromTopToTargetHeigt - 100],
     [800, 0]
   );
 
