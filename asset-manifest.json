@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/sangmin-yoon/sangmin-portfolio/static/js/main.a63cf420.js",
+    "static/js/787.744a5e47.chunk.js": "/sangmin-yoon/sangmin-portfolio/static/js/787.744a5e47.chunk.js",
+    "index.html": "/sangmin-yoon/sangmin-portfolio/index.html",
+    "main.a63cf420.js.map": "/sangmin-yoon/sangmin-portfolio/static/js/main.a63cf420.js.map",
+    "787.744a5e47.chunk.js.map": "/sangmin-yoon/sangmin-portfolio/static/js/787.744a5e47.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a63cf420.js"
+  ]
+}
