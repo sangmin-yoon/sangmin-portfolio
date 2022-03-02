@@ -7,6 +7,9 @@ export const theme = {
   },
   size: {
     defaultMaxWidth: "1200px",
+    pcMaxWidth: "1799px",
+    tabletMaxWidth: "1199px",
+    mobileMaxWidth: "599px",
   },
 };
 
