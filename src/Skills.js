@@ -1,6 +1,7 @@
-import { useTransform, useViewportScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import front from "./assets/skills/front.png";
+import deployment from "./assets/skills/deployment.png";
+import back from "./assets/skills/back.png";
 
 const SkillsWrapper = styled.div``;
 
@@ -9,11 +10,6 @@ const SkillsContainer = styled.div`
   margin: 0 auto;
   margin-top: 200px;
   width: 100%;
-`;
-
-const HeaderTitle = styled.h1`
-  font-size: 50px;
-  margin-bottom: 20px;
 `;
 
 const Content = styled.div`
@@ -45,22 +41,21 @@ function Skills() {
   return (
     <SkillsWrapper>
       <SkillsContainer>
-        {/* <HeaderTitle>SKILLS</HeaderTitle> */}
         <Content>
           <SkillBox>
             <h1>Frontend</h1>
             <hr />
-            <img alt="front" src="assets/skills/front.png" />
+            <img alt="front" src={front} />
           </SkillBox>
           <SkillBox>
             <h1>Backend</h1>
             <hr />
-            <img alt="back" src="assets/skills/back.png" />
+            <img alt="back" src={deployment} />
           </SkillBox>
           <SkillBox>
             <h1>Deployment</h1>
             <hr />
-            <img alt="deploy" src="assets/skills/deployment.png" />
+            <img alt="deploy" src={back} />
           </SkillBox>
         </Content>
       </SkillsContainer>

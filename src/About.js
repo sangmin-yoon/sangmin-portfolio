@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import {
-  motion,
-  useAnimation,
-  useTransform,
-  useViewportScroll,
-} from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import profile from "./assets/pro.png";
 
 const AboutWrapper = styled.div`
   background-color: ${(props) => props.theme.color.bgColorBorder};
@@ -90,7 +86,7 @@ function About() {
       <AboutContainer>
         <HeaderTitle ref={scrollRef}>ABOUT ME</HeaderTitle>
         <Content>
-          <ProfileImg src="assets/pro.png" />
+          <ProfileImg src={profile} />
           <Overview>
             <OverViewTitle style={{ x: titleSlide }}>
               항상 배우고 발전하고 싶은 개발자
