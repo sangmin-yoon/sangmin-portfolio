@@ -1,12 +1,20 @@
 {
   "files": {
-    "main.js": "/sangmin-yoon/sangmin-portfolio/static/js/main.a63cf420.js",
+    "main.js": "/sangmin-yoon/sangmin-portfolio/static/js/main.2ac0d284.js",
     "static/js/787.744a5e47.chunk.js": "/sangmin-yoon/sangmin-portfolio/static/js/787.744a5e47.chunk.js",
+    "static/media/pro.png": "/sangmin-yoon/sangmin-portfolio/static/media/pro.decb93d8336ccd045549.png",
+    "static/media/momentum.jpeg": "/sangmin-yoon/sangmin-portfolio/static/media/momentum.14a60c20e512b1df85d5.jpeg",
+    "static/media/mflix.jpeg": "/sangmin-yoon/sangmin-portfolio/static/media/mflix.a85cecdea7978dac171d.jpeg",
+    "static/media/switter.jpeg": "/sangmin-yoon/sangmin-portfolio/static/media/switter.a2e14e2658dd2d594c49.jpeg",
+    "static/media/swit.jpeg": "/sangmin-yoon/sangmin-portfolio/static/media/swit.a20f0b33ab643d5fb764.jpeg",
+    "static/media/front.png": "/sangmin-yoon/sangmin-portfolio/static/media/front.8adfc63b26f0d8fe0383.png",
+    "static/media/back.png": "/sangmin-yoon/sangmin-portfolio/static/media/back.c34f616198317eca42ef.png",
+    "static/media/deployment.png": "/sangmin-yoon/sangmin-portfolio/static/media/deployment.44f72cf54a7fa7b0d793.png",
     "index.html": "/sangmin-yoon/sangmin-portfolio/index.html",
-    "main.a63cf420.js.map": "/sangmin-yoon/sangmin-portfolio/static/js/main.a63cf420.js.map",
+    "main.2ac0d284.js.map": "/sangmin-yoon/sangmin-portfolio/static/js/main.2ac0d284.js.map",
     "787.744a5e47.chunk.js.map": "/sangmin-yoon/sangmin-portfolio/static/js/787.744a5e47.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.a63cf420.js"
+    "static/js/main.2ac0d284.js"
   ]
 }
