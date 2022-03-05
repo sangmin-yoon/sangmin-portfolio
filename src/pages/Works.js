@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useViewportScroll } from "framer-motion";
 import { useState } from "react";
 import styled from "styled-components";
-import { variantsTheme } from "./theme";
-import momentumImg from "./assets/prjedit/momentum.jpeg";
-import switterImg from "./assets/prjedit/switter.jpeg";
-import mflixImg from "./assets/prjedit/mflix.jpeg";
-import switImg from "./assets/prjedit/swit.jpeg";
+import { variantsTheme } from "../theme";
+import momentumImg from "../assets/prjedit/momentum.jpeg";
+import switterImg from "../assets/prjedit/switter.jpeg";
+import mflixImg from "../assets/prjedit/mflix.jpeg";
+import switImg from "../assets/prjedit/swit.jpeg";
 
 const WorksWrapper = styled.div`
   background-color: ${(props) => props.theme.color.bgColorBorder};

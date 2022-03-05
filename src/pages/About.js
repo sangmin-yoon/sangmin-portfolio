@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import profile from "./assets/pro.png";
+import profile from "../assets/pro.png";
 
 const AboutWrapper = styled.div`
   background-color: ${(props) => props.theme.color.bgColorBorder};

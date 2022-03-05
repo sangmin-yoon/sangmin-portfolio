@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import front from "./assets/skills/front.png";
-import deployment from "./assets/skills/deployment.png";
-import back from "./assets/skills/back.png";
+import front from "../assets/skills/front.png";
+import deployment from "../assets/skills/deployment.png";
+import back from "../assets/skills/back.png";
 
 const SkillsWrapper = styled.div``;
 

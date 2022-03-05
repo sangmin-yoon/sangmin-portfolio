@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import About from "./About";
-import Contact from "./Contact";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 import Header from "./Header";
-import Main from "./Main";
-import Skills from "./Skills";
-import Works from "./Works";
+import Main from "../pages/Main";
+import Skills from "../pages/Skills";
+import Works from "../pages/Works";
 
 const PcOnly = styled.div`
   display: none;
