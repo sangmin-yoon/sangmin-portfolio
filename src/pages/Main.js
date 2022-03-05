@@ -37,6 +37,10 @@ const Overview = styled.div`
     font-size: 40px;
     display: inline;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    width: 400px;
+  }
 `;
 
 function Main({ scrollTo }) {

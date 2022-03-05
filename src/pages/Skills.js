@@ -10,12 +10,21 @@ const SkillsContainer = styled.div`
   margin: 0 auto;
   margin-top: 200px;
   width: 100%;
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    margin-top: 50px;
+  }
 `;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const SkillBox = styled.div`
@@ -35,6 +44,12 @@ const SkillBox = styled.div`
   hr {
     opacity: 0.1;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    &&:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 function Skills() {
@@ -50,12 +65,12 @@ function Skills() {
           <SkillBox>
             <h1>Backend</h1>
             <hr />
-            <img alt="back" src={deployment} />
+            <img alt="back" src={back} />
           </SkillBox>
           <SkillBox>
             <h1>Deployment</h1>
             <hr />
-            <img alt="deploy" src={back} />
+            <img alt="deploy" src={deployment} />
           </SkillBox>
         </Content>
       </SkillsContainer>

@@ -10,8 +10,8 @@ import Works from "../pages/Works";
 const PcOnly = styled.div`
   display: none;
 
-  @media screen and (max-width: 599px) {
-    display: block;
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    /* display: block;
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -19,7 +19,7 @@ const PcOnly = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 100; */
   }
 `;
 

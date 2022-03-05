@@ -3,7 +3,7 @@ import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { faHomeLg, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useViewportScroll } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { variantsTheme } from "../theme";
 import momentumImg from "../assets/prjedit/momentum.jpeg";
@@ -22,6 +22,11 @@ const WorksContainer = styled.div`
   margin: 0 auto;
   height: 500px;
   width: 100%;
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    height: auto;
+    padding-bottom: 30px;
+  }
 `;
 
 const HeaderTitle = styled.h1`
@@ -55,21 +60,27 @@ const ProjectTitle = styled.div`
 `;
 
 const DetailContainer = styled(motion.div)`
-  height: 200px;
-  width: 400px;
   background-color: ${(props) => props.theme.color.bgColor};
   border-radius: 10px;
-  position: absolute;
   margin: 0 auto;
-  left: 0;
-  right: 0;
-  width: 35vw;
-  height: 70vh;
-  z-index: 1;
   border: 2px solid ${(props) => props.theme.color.bgColorBorder};
   opacity: 0.99;
   padding: 20px;
-  overflow: scroll;
+
+  @media screen and (min-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 35vw;
+    height: 70vh;
+    z-index: 1;
+    overflow: scroll;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    height: auto;
+    width: 320px;
+  }
 `;
 
 const ProjectCrover = styled(motion.div)`
@@ -167,6 +178,11 @@ const RefIconWrapper = styled.div`
   }
 `;
 
+const MobileDetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const projectVariants = {
   hover: {
     color: variantsTheme.color.mainColor,
@@ -178,6 +194,7 @@ const projectVariants = {
 };
 
 function Works() {
+  const [onlyPC, setOnlyPC] = useState(window.innerWidth > 599 ? true : false);
   const [projectsObj, setProjectObj] = useState({
     momentum: {
       stack: ["Vanilla JS", "HTML", "CSS"],
@@ -228,6 +245,17 @@ function Works() {
   });
   const { scrollY } = useViewportScroll();
 
+  const screenChange = (event) => {
+    const matches = event.matches;
+    setOnlyPC(matches);
+  };
+
+  useEffect(() => {
+    let mql = window.matchMedia("screen and (min-width:599px)");
+    mql.addEventListener("change", screenChange);
+    return () => mql.removeEventListener("change", screenChange);
+  }, []);
+
   const modalOn = (i) => {
     document.body.style.overflow = "hidden";
     setProjectObj((prev) => {
@@ -256,28 +284,69 @@ function Works() {
 
   return (
     <WorksWrapper>
-      <Screen />
       <WorksContainer>
         <HeaderTitle>WORKS</HeaderTitle>
-        <Content>
-          {Object.keys(projectsObj).map((i, key) => (
-            <ProjectCrover key={key}>
-              <ProjectWrapper
-                layoutId={i}
-                variants={projectVariants}
-                whileHover="hover"
-                onClick={() => modalOn(i)}
-              >
-                <FontAwesomeIcon icon={faFileLines} size="10x" />
-                <ProjectTitle>{i}</ProjectTitle>
-              </ProjectWrapper>
-            </ProjectCrover>
-          ))}
-        </Content>
+        {onlyPC ? (
+          <Content>
+            {Object.keys(projectsObj).map((i, key) => (
+              <ProjectCrover key={key}>
+                <ProjectWrapper
+                  layoutId={i}
+                  variants={projectVariants}
+                  whileHover="hover"
+                  onClick={() => modalOn(i)}
+                >
+                  <FontAwesomeIcon icon={faFileLines} size="10x" />
+                  <ProjectTitle>{i}</ProjectTitle>
+                </ProjectWrapper>
+              </ProjectCrover>
+            ))}
+          </Content>
+        ) : (
+          <>
+            {Object.keys(projectsObj).map((i, key) => (
+              <>
+                <DetailContainer key={key}>
+                  <DetailImgWrapper>
+                    <DetailImg src={projectsObj[i].imgUrl} />
+                  </DetailImgWrapper>
+                  <DetailOverViewContainer>
+                    <OverViewTitleWrapper>
+                      <OverViewTitle>{i}</OverViewTitle>
+                      <RefWrapper>
+                        <RefIconWrapper
+                          onClick={() =>
+                            window.open(`${projectsObj[i].gitUrl}`)
+                          }
+                        >
+                          <FontAwesomeIcon icon={faGithub} />
+                        </RefIconWrapper>
+                        <RefIconWrapper
+                          onClick={() =>
+                            window.open(`${projectsObj[i].homePageUrl}`)
+                          }
+                        >
+                          <FontAwesomeIcon icon={faHomeLg} />
+                        </RefIconWrapper>
+                      </RefWrapper>
+                    </OverViewTitleWrapper>
+
+                    <StackWrapper>
+                      {projectsObj[i].stack.map((skill, key) => (
+                        <Stack key={key}>{skill}</Stack>
+                      ))}
+                    </StackWrapper>
+                    <Description>{projectsObj[i].description}</Description>
+                  </DetailOverViewContainer>
+                </DetailContainer>
+              </>
+            ))}
+          </>
+        )}
       </WorksContainer>
       {Object.keys(projectsObj).map((i, key) => (
         <>
-          {projectsObj[i].modal ? (
+          {projectsObj[i].modal && (
             <DetailContainer
               style={{ top: scrollY.get() + 100 }}
               layoutId={i}
@@ -316,7 +385,7 @@ function Works() {
                 <Description>{projectsObj[i].description}</Description>
               </DetailOverViewContainer>
             </DetailContainer>
-          ) : null}
+          )}
         </>
       ))}
     </WorksWrapper>
