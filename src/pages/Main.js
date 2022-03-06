@@ -40,6 +40,14 @@ const Overview = styled.div`
 
   @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
     width: 350px;
+    margin-top: 150px;
+    justify-content: start;
+    h1 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 27px;
+    }
   }
 `;
 

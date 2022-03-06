@@ -81,8 +81,11 @@ const DetailContainer = styled(motion.div)`
     height: auto;
     width: 320px;
 
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 1, 0, 0.22) 0px 15px 12px;
+
     &&:not(:last-child) {
-      margin-bottom: 20px;
+      margin-bottom: 100px;
     }
   }
 `;
@@ -90,15 +93,6 @@ const DetailContainer = styled(motion.div)`
 const ProjectCrover = styled(motion.div)`
   width: 200px;
   height: 300px;
-`;
-
-const Screen = styled(motion.div)`
-  width: 100vw;
-  position: absolute;
-  margin: 0 auto;
-
-  background-color: black;
-  z-index: 2;
 `;
 
 const DetailImgWrapper = styled.div`
@@ -151,6 +145,11 @@ const Stack = styled.h1`
   &&:not(:last-child) {
     margin-right: 8px;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    font-size: 10px;
+    padding: 5px 15px;
+  }
 `;
 
 const Description = styled.div`
@@ -188,11 +187,6 @@ const RefIconWrapper = styled.div`
   &:hover {
     opacity: 1;
   }
-`;
-
-const MobileDetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 const projectVariants = {
