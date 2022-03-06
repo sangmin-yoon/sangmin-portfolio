@@ -80,6 +80,10 @@ const DetailContainer = styled(motion.div)`
   @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
     height: auto;
     width: 320px;
+
+    &&:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -125,6 +129,10 @@ const OverViewTitle = styled.h1`
   font-weight: 500;
   text-align: center;
   font-size: 2vw;
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    font-size: 18px;
+  }
 `;
 
 const StackWrapper = styled.div`
@@ -151,6 +159,10 @@ const Description = styled.div`
   opacity: 0.8;
   margin-bottom: 10px;
   height: 100%;
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    font-size: 15px;
+  }
 `;
 
 const CloseBtn = styled.div`

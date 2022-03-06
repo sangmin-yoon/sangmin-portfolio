@@ -39,7 +39,7 @@ const Overview = styled.div`
   }
 
   @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
-    width: 400px;
+    width: 350px;
   }
 `;
 
