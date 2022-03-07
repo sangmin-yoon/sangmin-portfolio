@@ -40,6 +40,7 @@ body {
   /* font-family: 'IBM Plex Sans KR', sans-serif; */
   font-family: "LeferiPoint-WhiteObliqueA";
   overflow: hidden;
+  touch-action: none;
 }
 ol, ul {
 	list-style: none;

@@ -64,6 +64,7 @@ function Main({ scrollTo }) {
               .callFunction(() => {
                 scrollTo.about();
                 document.body.style.overflow = "auto";
+                document.body.style.touchAction = "auto";
               })
               .start();
           }}

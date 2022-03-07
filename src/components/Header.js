@@ -9,6 +9,13 @@ const HeaderWrapper = styled.div`
   z-index: 1;
   background-color: ${(props) => props.theme.color.bgColorBorder};
   box-sizing: border-box;
+
+  box-shadow: inset 0 8px 8px -8px rgb(0 0 0 / 30%),
+    inset 0 -8px 8px -8px rgb(0 0 0 / 30%);
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    bottom: 0;
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -18,6 +25,10 @@ const HeaderContainer = styled.div`
   width: 100%;
   color: white;
   max-width: ${(props) => props.theme.size.defaultMaxWidth};
+
+  @media screen and (max-width: ${(props) => props.theme.size.mobileMaxWidth}) {
+    padding: 0px 10px;
+  }
 `;
 
 const Title = styled.h1`
@@ -40,11 +51,18 @@ const NavList = styled.div`
   }
 `;
 
-function Header() {
+function Header({ onlyPC, scrollTo }) {
   return (
     <HeaderWrapper>
       <HeaderContainer>
         <Title>SMIN</Title>
+        {!onlyPC && (
+          <Nav>
+            <NavList onClick={scrollTo.about}>ABOUT</NavList>
+            <NavList onClick={scrollTo.skills}>SKILLS</NavList>
+            <NavList onClick={scrollTo.works}>WORKS</NavList>
+          </Nav>
+        )}
       </HeaderContainer>
     </HeaderWrapper>
   );

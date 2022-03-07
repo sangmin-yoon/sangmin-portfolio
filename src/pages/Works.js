@@ -199,8 +199,7 @@ const projectVariants = {
   },
 };
 
-function Works() {
-  const [onlyPC, setOnlyPC] = useState(window.innerWidth > 599 ? true : false);
+function Works({ onlyPC }) {
   const [projectsObj, setProjectObj] = useState({
     momentum: {
       stack: ["Vanilla JS", "HTML", "CSS"],
@@ -250,17 +249,6 @@ function Works() {
     },
   });
   const { scrollY } = useViewportScroll();
-
-  const screenChange = (event) => {
-    const matches = event.matches;
-    setOnlyPC(matches);
-  };
-
-  useEffect(() => {
-    let mql = window.matchMedia("screen and (min-width:599px)");
-    mql.addEventListener("change", screenChange);
-    return () => mql.removeEventListener("change", screenChange);
-  }, []);
 
   const modalOn = (i) => {
     document.body.style.overflow = "hidden";

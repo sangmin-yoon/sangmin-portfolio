@@ -70,7 +70,7 @@ const ParagraphFirst = styled(motion.p)``;
 
 const ParagraphTwo = styled(motion.p)``;
 
-function About() {
+function About({ onlyPC }) {
   const [fromTopToTargetHeigt, setFromTopToTargetHeigt] = useState(0);
   const { scrollY } = useViewportScroll();
   const scrollRef = useRef();
@@ -105,17 +105,17 @@ function About() {
         <Content>
           <ProfileImg src={profile} />
           <Overview>
-            <OverViewTitle>
+            <OverViewTitle style={{ x: onlyPC ? titleSlide : "none" }}>
               항상 배우고 발전하고 싶은 개발자
               <br /> 윤상민 입니다.
             </OverViewTitle>
-            <ParagraphFirst>
+            <ParagraphFirst style={{ x: onlyPC ? paragraphSlideOne : "none" }}>
               실제로 구현하여 성과가 보이는 것, 내가 만든 무언가를 다른 사람이
               사용한다는 것에 재미와 보람을 느낍니다. IT 기술을 좋아하고 내가
               노력한 만큼 성장할 수 있다고 생각하여 개발을 시작하게 됐습니다.
             </ParagraphFirst>
             <br />
-            <ParagraphTwo>
+            <ParagraphTwo style={{ x: onlyPC ? paragraphSlideTwo : "none" }}>
               프론트뿐만 아니라 백엔드, 앱개발등 다양한 기술에 관심이 많습니다.
               최근에는 앱개발에 관심이 많아 React Native를 공부하고 있습니다.
               그리고 Vanilla JS의 깊은 이해도를 위해 그와 관련된 공부도 꾸준히
